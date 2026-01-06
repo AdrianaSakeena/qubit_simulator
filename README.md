@@ -12,3 +12,4 @@
 - Vectors related by a complex scalar of magnitude one yield identical measurement probabilities and represent the same physical state, known as a ray in Hilbert space, or a quantum state. 
 - This project generates code to create a normalized complex vector and demonstrates computationally that multiplying a normalized state by different global phases does not change measurement outcomes. 
 - This contrasts with classical state representations, where each state corresponds to a single definite outcome rather than a probability distribution. 
+
