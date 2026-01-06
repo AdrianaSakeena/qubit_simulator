@@ -18,7 +18,8 @@
 - Probabilities are obtained using the Born rule, which assigns probabilities as the squared magnitudes of amplitudes. 
 - Measurement corresponds to projecting the state vector onto a measurement basis, with outcomes occurring randomly according to these probabilities. 
 - This simulation demonstrates that measurement statistics arise from the projection of a state vector onto basis vectors, and that repeated measurements produce frequencies that converge to the theoretical probabilities.
-- Output:<img width="502" height="128" alt="image" src="https://github.com/user-attachments/assets/4f16ebb3-4fe6-49b4-850a-bb4622681faa" />
+  <img width="502" height="128" alt="image" src="https://github.com/user-attachments/assets/4f16ebb3-4fe6-49b4-850a-bb4622681faa" />
+
 
 
 
