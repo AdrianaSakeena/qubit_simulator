@@ -8,10 +8,13 @@ def amplitudes(vector,basis):
     #getting coeffcients for each basis vector by taking inner product
     a = state.inner_product(basis[0],vector)
     b = state.inner_product(basis[1],vector)
-    return a,b
+    amplitudes = [a,b]
+    return amplitudes
+
 def measurement_trials(vector,basis,trials):
     #generate amplitudes and use them to compute theoretical probabilites
-    a,b = amplitudes(vector,basis)
+    a = (amplitudes(vector,basis))[0]
+    b = (amplitudes(vector,basis))[1]
     #Finding theoretical probabilities from amplitudes
     theo_prob0 = ((np.abs(a))**2)
     theo_prob1 = ((np.abs(b))**2)
@@ -27,11 +30,9 @@ def measurement_trials(vector,basis,trials):
             outcome0 +=1
     
 
-    
-    print(f"State Vector: {vector}")
-    print(f"Basis: {basis}")
-    print(f"Amplitude |0>: {a}")
-    print(f"Amplitude |1>: {b}")
+    #print(f"Basis: {basis}")
+    #print(f"Amplitude |0>: {a}")
+    #print(f"Amplitude |1>: {b}")
     print(f"Superposition: {a:.4f}|0> + {b:.4f}|1>")
     print(f"Outcome frequency |0>: {outcome0/trials}")
     print(f"Outcome frequency |1>: {outcome1/trials}")
@@ -42,5 +43,7 @@ def measurement_trials(vector,basis,trials):
     elif outcome1 == outcome0:
         outcome_statement = "both |1> and |0>"
     print(f"The most likely measurement outcome is {outcome_statement}")
+
+ 
 
 

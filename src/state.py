@@ -1,5 +1,6 @@
 import numpy as np
 import random as r
+import src.measurement as measure
 
 # create a function which take an arbitray complex vector has input and normalizes it
 def complex_vector():
@@ -127,6 +128,26 @@ def measurement_probability(input_vector):
     print(f"Difference of probabilites between phases for basis vector |0> = {difference_basis0}")
     print(f"Difference of probabilites between phases for basis vector |1> = {difference_basis1}")
 
+
+def physical_state(vector,basis,zero = 1e-12,):
+    #taking a vector and creating anchor ro repersent a quantum state
+    amps = measure.amplitudes(vector,basis)
+    for i, a in enumerate(amps): #for each index i in amps pull out the amplitude a
+        if abs(a)>zero:
+            k = i
+            break
+    
+    if k == None:
+        print("Cannot create physical state: all amplitudes are approximately 0")
+        raise ValueError
+    
+    else:
+        #remove phase
+        phase = np.angle(amps[k]) #this repersents the phase of the anchor amplitude (the angle phi arctan2(y,x))
+        phase_factor = np.exp(-1j*phase)
+        #multiplying the whole state by the phase_factor in order to cancel out the global phase
+        state_vector = vector*phase_factor
+        return state_vector
 
 
 
