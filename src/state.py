@@ -56,10 +56,10 @@ def normalized_complex_vector():
     length = norm(normalized_vector)
     #print(f"length: {length}")
 
-    if length == 1:
+    if 0.9<=length<=1.0 :
         normalize = True
-        print("true")
     else:
+        print(f"Invalid length: {length}")
         print("false")
         normalize = False
 
