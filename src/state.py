@@ -17,17 +17,27 @@ def complex_vector():
     complex_vector = np.array([complex_num1, complex_num2])
 
     return(complex_vector)
+def inner_product(conj_vector,vector):
+    inner_num = 0
+    index = 0
+    for i in vector:
+        num = (conj_vector[index].conjugate()*i)
+        inner_num += num
+        index +=1
+    
+    return inner_num
+
 
 def norm(vector):
     #the function norm(takes a complex vector and normalizes it)
 
     #find the inner product by multiplying each vector entry by its conjugate and the adding the results
-    inner_product = 0
-    for i in vector:
-        num = (i * i.conjugate())
-        inner_product += num
+
+    inner = inner_product(vector,vector)
     #finding the norm by taking the square root of the inner_product
-    norm = inner_product**(1/2)
+
+    norm = inner**(1/2)
+  
     return norm
 
 
@@ -44,10 +54,13 @@ def normalized_complex_vector():
         new_vector.append(num)
     normalized_vector = np.array(new_vector)
     length = norm(normalized_vector)
+    #print(f"length: {length}")
 
     if length == 1:
         normalize = True
+        print("true")
     else:
+        print("false")
         normalize = False
 
     return normalize, normalized_vector
@@ -85,20 +98,11 @@ def measurement_probability(input_vector):
         #basis states
         basis0 = np.array([1,0])
         basis1 = np.array([0,1])
-        inner_product0 = 0
-        #finding the inner product for <0|
-        index = 0
-        for i in basis0:
-            num = (i.conjugate()* vector[index])
-            inner_product0 += num
-            index +=1
+        #Finding the inner product of 0
+        inner_product0 = inner_product(basis0,vector)
         #finding the inner product <1|
-        inner_product1 = 0
-        index1 = 0
-        for i in basis1:
-            num1 = (i.conjugate() * vector[index1])
-            inner_product1 += num1
-            index1 +=1
+        inner_product1 = inner_product(basis1,vector)
+      
         #finding the measurement probabilty of both basis given the inner product
         measurement_probability0 = (np.abs(inner_product0))**2
         measurement_probability1 = (np.abs(inner_product1))**2
@@ -111,7 +115,6 @@ def measurement_probability(input_vector):
             m1= measurement_probability1
         elif loop_index > 0:
             difference0 = m0 - measurement_probability0
-            print(f"Difference <0|: {difference0}")
             difference1 = m1 - measurement_probability1
 
         
