@@ -49,6 +49,23 @@ Program Output:
 ![Screenshot 2026-01-06 220546](https://github.com/user-attachments/assets/a8f2f35e-67ad-42a3-9992-c5c7bf73375d)
 ![Screenshot 2026-01-06 220642](https://github.com/user-attachments/assets/8265d8cf-dcb2-4244-b6a4-6e2ae5ec1d1e)
 
+## Applying Unitary Operators
+
+- Unitary operators represent valid quantum evolution because they preserve inner products, norms, and measurement probabilities.
+- A matrix is unitary if its conjugate transpose equals its inverse, ensuring reversibility of quantum evolution.
+- Applying a unitary operator to a normalized state produces a new normalized state without changing total probability.
+- Common single-qubit gates (Pauli X, Y, Z, Hadamard, and rotation gates) act as rotations of the state vector on the Bloch sphere.
+- This simulation verifies unitarity numerically, applies unitary transformations to quantum states, and confirms that evolution corresponds to rigid rotations on the Bloch sphere rather than changes in probability alone.
+
+Program Output (State vector):
+- ![state vector bloch](https://github.com/user-attachments/assets/9326af33-4a81-44c7-8f57-cd59306b66dd)   ![State vector information](https://github.com/user-attachments/assets/139b2b51-7e74-4795-8acf-986b2b97f69c)
+
+Program Output (State vector transformed by Pauli X operator):
+- ![transformed vector](https://github.com/user-attachments/assets/87f883bd-6b06-4cb1-9516-258c8b784566)    ![transformed vector information](https://github.com/user-attachments/assets/53d1f2e0-3349-478d-ae02-0733225e594d)
+
+
+
+
 
 
 
