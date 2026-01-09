@@ -56,7 +56,7 @@ def angle_converter(x,y,z):
 
     
 
-def build_sphere(valid,x,y,z):
+def build_sphere(valid,x,y,z,label):
     #creating the figure
     if valid == True:
         fig = plt.figure()
@@ -91,6 +91,8 @@ def build_sphere(valid,x,y,z):
         sub.set_zticks([-1,-.5,0,.5,1])
         # creating the arrow
         sub.quiver(0,0,0,x,y,z,color= 'red',linewidth = 2)
+        sub.set_title(label)
         plt.show()
+        plt.clf()
     else:
         print("Unable to plot Bloch Sphere")
